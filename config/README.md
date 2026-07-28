@@ -48,6 +48,10 @@ postgres://user:pass@db/utask?sslmode=disable
     // notify_config contains a map of named notification configurations, composed of a type and config data,
     // implemented notifiers include:
     // - opsgenie (https://www.atlassian.com/software/opsgenie); available zones are: global, eu, sandbox
+    //   the zone can be bypassed with api_url; prefer a full base URL including the scheme
+    //   (e.g. "https://api.atlassian.com/jsm/ops/integration" for Jira Service Management).
+    //   A bare host is still accepted for backward compatibility, but the scheme is then
+    //   inferred by the SDK and may fall back to plain HTTP
     // - slack webhook (https://api.slack.com/messaging/webhooks)
     // - generic webhook (custom URL, with HTTP POST method)
     // notification strategies can be declared per backend:
